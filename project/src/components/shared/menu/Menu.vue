@@ -1,10 +1,16 @@
 <template>
-    <header>          
-        <h2>Menu</h2>     
-        <nav>
-            <ul>
-                <li v-for="rota in rotas" :key="rota.id">
-                    <router-link :to="rota.path ? rota.path : '/'">
+    <header class="navbar-dark bg-success">          
+        <nav class="navbar">
+            <router-link class="navbar-brand" to="/"></router-link>
+
+            <ul class="navbar-nav">
+                <li 
+                    class="nav-item active"
+                    v-for="rota in rotas" :key="rota.id">
+
+                    <router-link 
+                        class="nav-link"
+                        :to="rota.path ? rota.path : '/'">
                         {{ rota.titulo }}
                     </router-link>
                 </li>
