@@ -14,7 +14,6 @@ export default {
 
   data() {
 
-    console.log(appRouter)
     return {
       routes: appRouter
     }

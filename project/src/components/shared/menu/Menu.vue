@@ -26,6 +26,8 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss">
 
+    @import './menu.scss';
+    
 </style>
