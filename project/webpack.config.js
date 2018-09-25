@@ -10,13 +10,10 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'style-loader!css-loader'
-        ],
-      },      
+      { 
+        test: /\.css$/, 
+        loader: 'style-loader!css-loader' 
+      },    
       {
         test: /\.scss$/,
         loaders: ['style-loader', 'css-loader', 'sass-loader']
