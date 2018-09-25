@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import { appRouter } from './router';
 import './assets/css/reset.css';
 import './assets/css/fonts.css';
+import './assets/css/base.css';
 
 Vue.use(VueRouter)
 

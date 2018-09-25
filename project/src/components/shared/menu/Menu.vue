@@ -1,6 +1,6 @@
 <template>
     <header class="navbar-dark bg-success">          
-        <nav class="navbar">
+        <nav class="navbar container">
             <router-link class="navbar-brand" to="/"></router-link>
 
             <ul class="navbar-nav">
