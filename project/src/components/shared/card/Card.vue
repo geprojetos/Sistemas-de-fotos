@@ -1,5 +1,5 @@
 <template>
-    <section class="card" >
+    <section class="card">
         <img 
             class="img-thumbnail img-card" 
             :src="url" 

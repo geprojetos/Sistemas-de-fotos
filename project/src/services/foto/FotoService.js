@@ -4,4 +4,11 @@ export default class FotoService {
 
         this._resource = resource('v1/fotos{/id}');
     }
+
+    list() {
+
+        return this._resource
+            .query()
+            .then( res => res.json() )
+    }
 }
