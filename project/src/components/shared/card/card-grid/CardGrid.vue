@@ -24,7 +24,7 @@
 
             this.service = new FotoService(this.$resource)
 
-            const teste = this.service
+            this.service
                 .list()
                 .then( res => this.fotos = res )
         },
