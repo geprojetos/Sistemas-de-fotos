@@ -1,41 +1,16 @@
 <template>
-    <section class="container pt-2">
-        <ap-card
-            v-for="foto in fotos" :key="foto._id"
-            :url="foto.url"
-            :title="foto.titulo"
-            :description="foto.descricao">
-        </ap-card>
-    </section>
+   <ap-card-grid />
 </template>
 
 <script>
-    import Card from '../shared/card/Card.vue';
-    import FotoService from '../../services/foto/FotoService.js';
+    import CardGrid from '../shared/card/card-grid/CardGrid';
 
-     export default {
+    export default {
           
-        created() {
-
-            this.service = new FotoService(this.$resource)
-
-            const teste = this.service
-                .list()
-                .then( res => this.fotos = res )
-        },
-
-        data() {
-
-            return {
-
-                fotos: []
-            }
-        },
-
         components: {
-            'ap-card': Card
+            'ap-card-grid': CardGrid
         }
-     }
+    }
 </script>
 
 <style scope>
