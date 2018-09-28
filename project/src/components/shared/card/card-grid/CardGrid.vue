@@ -1,5 +1,5 @@
 <template>
-    <section class="container pt-2">
+    <section class="container">
         <div class="row">
             <div 
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3" 
@@ -45,5 +45,6 @@
 
 <style lang="sass" scoped>
 
+    @import './scss/grid.scss';
 </style>
 

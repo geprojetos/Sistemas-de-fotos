@@ -41,5 +41,5 @@
 
 <style scoped lang="sass">
 
-    @import './css/card.css';
+    @import './scss/card.scss';
 </style>
