@@ -5,6 +5,8 @@ html {
 h1 {
 	font-family: "Arial", "Verdana", "Helvetica", "sans-serif";
 	font-weight: bold;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
 }
 
 h2,
@@ -14,7 +16,9 @@ h5,
 h6 {
 	font-family: "Verdana", "Helvetica", "Arial", "sans-serif";
     font-weight: normal;
-    font-weight: 600;
+	font-weight: 600;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
 }
 
 h1 {
