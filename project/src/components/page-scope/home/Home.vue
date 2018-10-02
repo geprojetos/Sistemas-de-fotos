@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import CardGrid from '../shared/card/card-grid/CardGrid';
+    import CardGrid from '../../shared/card/card-grid/CardGrid';
 
     export default {
           

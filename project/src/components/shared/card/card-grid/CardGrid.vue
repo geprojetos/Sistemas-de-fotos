@@ -45,6 +45,5 @@
 
 <style lang="sass" scoped>
 
-    @import './scss/grid.scss';
 </style>
 

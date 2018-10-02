@@ -1,4 +1,4 @@
-import Home from './components/page-scope/Home.vue';
+import Home from './components/page-scope/home/Home.vue';
 const Cadastro = () => System.import('./components/page-scope/cadastro/Cadastro.vue');
 
 export const appRouter = [

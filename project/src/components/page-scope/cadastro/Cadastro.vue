@@ -3,6 +3,10 @@
         <h1>Cadastro</h1>
 
         <form class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <img src="" alt="Imagem">
+            </div>
+            
             <div class="col-sm-12 col-md-6 col-lg-8">
                 <fieldset>
                     <div class="form-group">
@@ -59,10 +63,6 @@
                 <fieldset>
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </fieldset>
-            </div>
-
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <img src="" alt="Imagem">
             </div>
         </form>
     </section>    
