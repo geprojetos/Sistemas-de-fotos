@@ -13,14 +13,6 @@
     margin-bottom: 1.875em;
 }
 
-.img-thumbnail {
-    padding: 0.25rem;
-    background-color: #fff;
-    border-radius: 0.25rem;
-    max-width: 100%;
-    height: auto;
-}
-
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
@@ -35,28 +27,4 @@
 .card-text {
     margin-bottom: 0;
     text-align: center;
-}
-
-@media (min-width: 576px) {
-    .img-card {
-        height: 350px;
-    }
-}
-
-@media (min-width: 768px) {
-    .img-card {
-        height: 328px;
-    }
-}
-
-@media (min-width: 992px) {
-    .img-card {
-        height: 268px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .img-card {
-        height: 250px;
-    }
 }

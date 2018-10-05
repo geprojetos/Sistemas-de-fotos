@@ -9,6 +9,7 @@
             name="formCadastro">
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <img
+                    class="img-thumbnail"
                     v-show="foto.url"
                     :src="foto.url" 
                     :alt="foto.titulo"
@@ -98,9 +99,15 @@
 </template>
 
 <script>
-    import Foto from '../../../models/foto/Foto';
+    import Foto from '../../../models/foto/FotoModel';
+    import FotoService from '../../../services/foto/FotoService';
 
     export default {
+
+        created() {
+            
+            this.service = new FotoService(this.$resource);
+        },
 
         data() {
             return {
@@ -113,7 +120,22 @@
 
             salvar() {
 
-                console.log(JSON.stringify(this.foto));
+                this.service
+                    .save(this.foto)
+                    .then(() => {
+
+                        alert('Foto Cadastrada com sucesso')
+
+                        setTimeout(() => {
+                            if(confirm("Deseja cadastrar um nova foto?")) {
+                                this.foto = new Foto();
+                                return;
+                            }
+
+                            this.$router.push({ name: 'home' });
+                            return;
+                        },300)
+                    }, erro => console.log(erro))
             }
         }
     }

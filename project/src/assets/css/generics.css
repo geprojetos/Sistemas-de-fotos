@@ -1,0 +1,32 @@
+.img-thumbnail {
+    padding: 0.25rem;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 576px) {
+    .img-thumbnail {
+        height: 350px;
+    }
+}
+
+@media (min-width: 768px) {
+    .img-thumbnail {
+        height: 328px;
+    }
+}
+
+@media (min-width: 992px) {
+    .img-thumbnail {
+        height: 268px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .img-thumbnail {
+        height: 250px;
+    }
+}

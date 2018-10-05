@@ -11,4 +11,16 @@ export default class FotoService {
             .query()
             .then( res => res.json() )
     }
+
+    save(foto) {
+
+        return this._resource
+            .save(foto)
+            .then(
+                () => {}, 
+                erro => {
+                    console.log(erro)
+                }
+            )
+    }
 }
