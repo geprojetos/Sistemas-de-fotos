@@ -19,10 +19,14 @@
                             type="email" 
                             class="form-control" 
                             id="title" 
+                            name="title"
                             aria-describedby="url" 
-                            placeholder="Digite o título aqui">
-                        <small class="form-text text-danger">
-                            Título obrigatório
+                            placeholder="Digite o título aqui"
+                            v-validate="{ required: true, min:3, max:20 }" data-vv-as="Título">
+                        <small 
+                            class="form-text text-danger"
+                            v-show="errors.has('title')">
+                            {{ errors.first('title') }}
                         </small>
                     </div>
 
@@ -36,10 +40,14 @@
                             type="text" 
                             class="form-control" 
                             id="url" 
+                            name="url"
                             aria-describedby="url" 
-                            placeholder="Digite a url aqui">
-                        <small class="form-text text-danger">
-                            Url obrigatório
+                            placeholder="Digite a url aqui"
+                            v-validate="{ required: true }" data-vv-as="Url">
+                        <small 
+                            class="form-text text-danger"
+                            v-show="errors.has('url')">
+                            {{ errors.first('url') }}
                         </small>
                     </div>
 
@@ -52,10 +60,13 @@
                         <textarea 
                             name="description" 
                             id="description"
-                            class="form-control cadastro-description">
+                            class="form-control cadastro-description"
+                            v-validate="{ required: true, min:4, max:200 }" data-vv-as="Descrição">
                         </textarea>
-                        <small class="form-text text-danger">
-                            Descrição obrigatória
+                        <small 
+                            class="form-text text-danger"
+                            v-show="errors.has('description')">
+                            {{ errors.first('description') }}
                         </small>
                     </div>
                 </fieldset>
