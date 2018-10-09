@@ -8,6 +8,8 @@
                     :url="foto.url"
                     :title="foto.titulo"
                     :description="foto.descricao">
+
+                    <slot></slot>
                 </ap-card>
             </div>
         </div>
