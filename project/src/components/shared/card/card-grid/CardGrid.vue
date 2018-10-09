@@ -9,7 +9,12 @@
                     :title="foto.titulo"
                     :description="foto.descricao">
 
-                    <slot></slot>
+                    <ap-button 
+                    tipo="button"
+                    name="Remover"
+                    estilo="btn-danger btn-block"
+                    @acaoRemove="remover(foto)"
+                    :remocao="true" />
                 </ap-card>
             </div>
         </div>
@@ -19,6 +24,7 @@
 <script>
     import CardBase from '../card-base/CardBase';
     import FotoService from '../../../../services/foto/FotoService';
+    import Button from '../../button/Button';
 
     export default {
 
@@ -40,7 +46,25 @@
         },
 
         components: {
-            'ap-card': CardBase
+            'ap-card': CardBase,
+            'ap-button': Button
+        },
+
+        methods: {
+
+            remover(foto) {
+
+                this.service
+                    .remove(foto._id)
+                    .then( () => {
+
+                        alert('Foto removida com sucesso');
+                        let indice = this.fotos.indexOf(foto);
+                        this.fotos.splice(indice, 1);
+                    }, erro => {
+                        console.log(erro)
+                    });
+            }            
         }
     }    
 </script>

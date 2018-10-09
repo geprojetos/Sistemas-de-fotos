@@ -2,7 +2,8 @@
     <button 
         class="btn btn-light"
         :type="tipo"
-        :class="estilo">
+        :class="estilo"
+        @click="acao()">
         {{ name }}
     </button>
 </template>
@@ -22,6 +23,26 @@
             estilo: {
                 required: false,
                 type: String
+            },
+            remocao: {
+                required: false,
+                type: Boolean
+            }
+        },
+
+        methods: {
+
+            acao() {
+                if(this.remocao) {
+                    if(confirm('Deseja confirmar esse operação?')) {
+    
+                        this.$emit('acaoRemove');
+                        return;
+                    }
+                };
+
+                this.$emit('acao');
+                return;
             }
         }
     }

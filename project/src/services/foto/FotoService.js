@@ -10,7 +10,7 @@ export default class FotoService {
         return this._resource
             .query()
             .then( res => res.json() )
-    }
+    };
 
     save(foto) {
 
@@ -22,5 +22,14 @@ export default class FotoService {
                     console.log(erro)
                 }
             )
+    };
+
+    remove(id) {
+
+        return this._resource
+            .delete({id})
+            .then( () => {}, erro => {
+                console.log(erro)
+            });
     }
 }
