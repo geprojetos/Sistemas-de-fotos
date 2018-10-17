@@ -109,7 +109,10 @@
             this.service = new FotoService(this.$resource);
 
             if(this.id) {
-                console.log(this.id)
+
+                this.service
+                    .query(this.id)
+                    .then(res => this.foto = res)
             }
         },
 
