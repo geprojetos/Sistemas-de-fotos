@@ -1,6 +1,7 @@
 <template>
     <section class="container">
-        <h1>Cadastro</h1>
+        <h1 v-if="foto._id">Alteração</h1>
+        <h1 v-else>Cadastro</h1>
         <h3>{{ foto.titulo }}</h3>
 
         <form 
@@ -132,17 +133,24 @@
                     .save(this.foto)
                     .then(() => {
 
-                        alert('Foto Cadastrada com sucesso')
+                        if(this.id) {
 
-                        setTimeout(() => {
-                            if(confirm("Deseja cadastrar um nova foto?")) {
-                                this.foto = new Foto();
-                                return;
-                            }
-
+                            alert('Foto alterada com sucesso');
                             this.$router.push({ name: 'home' });
-                            return;
-                        },300)
+                        } else {
+
+                            alert('Foto Cadastrada com sucesso')
+    
+                            setTimeout(() => {
+                                if(confirm("Deseja cadastrar um nova foto?")) {
+                                    this.foto = new Foto();
+                                    return;
+                                }
+    
+                                this.$router.push({ name: 'home' });
+                                return;
+                            },300)
+                        }
                     }, erro => console.log(erro))
             }
         }

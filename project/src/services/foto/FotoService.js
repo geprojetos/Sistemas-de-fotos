@@ -14,14 +14,21 @@ export default class FotoService {
 
     save(foto) {
 
-        return this._resource
-            .save(foto)
-            .then(
-                () => {}, 
-                erro => {
-                    console.log(erro)
-                }
-            )
+        if(foto._id) {
+
+            return this._resource
+                .update({ id: foto._id }, foto)
+        } else {
+
+            return this._resource
+                .save(foto)
+                .then(
+                    () => {}, 
+                    erro => {
+                        console.log(erro)
+                    }
+                )
+        }
     };
 
     query(id) {
