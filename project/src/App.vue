@@ -15,7 +15,7 @@ export default {
   data() {
 
     return {
-      routes: appRouter
+      routes: appRouter.filter(route => route.menu)
     }
   },
 

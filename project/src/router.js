@@ -7,12 +7,21 @@ export const appRouter = [
         path: '',
         component: Home,
         name: 'home',
-        titulo: 'Home'
+        titulo: 'Home',
+        menu: true
     },
     {
         path: '/cadastro',
         component: Cadastro,
         name: 'cadastro',
-        titulo: 'Cadastro'
+        titulo: 'Cadastro',
+        menu: true
+    },
+    {
+        path: '/cadastro/:id',
+        component: Cadastro,
+        name: 'alteracao',
+        titulo: 'Alteração',
+        menu: false
     }
 ]

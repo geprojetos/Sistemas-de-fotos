@@ -9,6 +9,11 @@
                     :title="foto.titulo"
                     :description="foto.descricao">
 
+                    <router-link :to="{ name: 'alteracao', params: { id: foto._id } }" 
+                        class="btn btn-primary btn-block">
+                        Alterar
+                    </router-link>
+
                     <ap-button 
                     tipo="button"
                     name="Remover"
