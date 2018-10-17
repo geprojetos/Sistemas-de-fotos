@@ -107,12 +107,17 @@
         created() {
             
             this.service = new FotoService(this.$resource);
+
+            if(this.id) {
+                console.log(this.id)
+            }
         },
 
         data() {
             return {
 
-                foto: new Foto()
+                foto: new Foto(),
+                id: this.$route.params.id
             }
         },
 
