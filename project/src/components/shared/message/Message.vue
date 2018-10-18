@@ -1,5 +1,8 @@
 <template>
-    <p class="alert alert-light" :class="estilo">
+    <p 
+        v-show="message"
+        class="alert alert-light" 
+        :class="estilo">
         {{ message }}
 
         <button type="button" class="close" aria-label="Fechar" @click.prevent="close">

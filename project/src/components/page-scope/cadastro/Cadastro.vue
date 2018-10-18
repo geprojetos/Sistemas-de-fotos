@@ -7,7 +7,6 @@
 
         <div>
             <ap-message 
-                v-show="message"
                 :estilo="classe" 
                 :message="message"
                 @close="closeMessage" />

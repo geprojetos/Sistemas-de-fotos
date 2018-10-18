@@ -12,7 +12,16 @@ export default class FotoService {
 
         return this._resource
             .query()
-            .then( res => res.json() )
+            .then( res => res.json()
+                    ,erro => {
+
+                        console.log(erro);
+
+                        return {
+                            text: this._message.listError(),
+                            class: this._message.classError()
+                        }
+                });
     };
 
     save(foto) {
@@ -27,8 +36,10 @@ export default class FotoService {
                             text: this._message.updateSuccess(),
                             class: this._message.classSuccess() 
                         }
-                }, () => {
+                }, erro => {
 
+                    console.log(erro);
+                    
                     return {
                         text: this._message.updateError(),
                         class: this._message.classError() 
@@ -68,8 +79,20 @@ export default class FotoService {
 
         return this._resource
             .delete({id})
-            .then( () => {}, erro => {
-                console.log(erro)
+            .then( () => {
+
+                return {
+                    text: this._message.removeSuccess(),
+                    class: this._message.classSuccess()
+                }
+            }, erro => {
+
+                console.log(erro);
+
+                return {
+                    text: this._message.removeError(),
+                    class: this._message.classError()
+                }
             });
     }
 }
