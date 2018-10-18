@@ -1,8 +1,11 @@
+import MensagemService from '../mensagem/MensagemService';
+
 export default class FotoService {
 
     constructor(resource) {
 
         this._resource = resource('v1/fotos{/id}');
+        this._message = new MensagemService();
     }
 
     list() {
@@ -18,14 +21,37 @@ export default class FotoService {
 
             return this._resource
                 .update({ id: foto._id }, foto)
+                .then( () => {
+
+                    return {
+                            text: this._message.updateSuccess(),
+                            class: this._message.classSuccess() 
+                        }
+                }, () => {
+
+                    return {
+                        text: this._message.updateError(),
+                        class: this._message.classError() 
+                    }
+                })
         } else {
 
             return this._resource
                 .save(foto)
-                .then(
-                    () => {}, 
-                    erro => {
-                        console.log(erro)
+                .then( () => {
+
+                    return {
+                        text: this._message.addSuccess(),
+                        class: this._message.classSuccess()
+                    }
+                }, erro => {
+
+                        console.log(erro);
+                        
+                        return {
+                            text: this._message.addSuccess(),
+                            class: this._message.classSuccess()
+                        }
                     }
                 )
         }

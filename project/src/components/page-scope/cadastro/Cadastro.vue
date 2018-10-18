@@ -153,12 +153,12 @@
 
                 this.service
                     .save(this.foto)
-                    .then(() => {
+                    .then(res => {
 
                         if(this.id) {
 
-                            this.message = 'Foto alterada com sucesso'
-                            this.classe = 'alert-success'
+                            this.message = res.text;
+                            this.classe = res.class;
 
                             setTimeout(() => {
                                 if(confirm('Deseja fazer outra alteração?')) {
@@ -171,8 +171,8 @@
                             }, 300);
                         } else {
 
-                            this.message = 'Foto cadastrada com sucesso'
-                            this.classe = 'alert-success'
+                            this.message = res.text;
+                            this.classe = res.class;
     
                             setTimeout(() => {
                                 if(confirm("Deseja cadastrar um nova foto?")) {
@@ -184,7 +184,13 @@
                                 return;
                             },300)
                         }
-                    }, erro => console.log(erro))
+                    }, erro => {
+
+                        console.log(erro);
+                        
+                        this.message = res.text;
+                        this.classe = res.class;
+                    })
             },
 
             closeMessage() {
