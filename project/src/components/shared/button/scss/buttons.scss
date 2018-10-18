@@ -15,6 +15,7 @@
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     margin-top: 1em;
+    text-decoration: none;
 }
 
 .btn-block {
@@ -44,6 +45,19 @@
     color: #fff;
     background-color: #0069d9;
     border-color: #0062cc;
+}
+
+
+.btn-info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+  
+  .btn-info:hover {
+    color: #fff;
+    background-color: #138496;
+    border-color: #117a8b;
 }
 
 .btn-danger {

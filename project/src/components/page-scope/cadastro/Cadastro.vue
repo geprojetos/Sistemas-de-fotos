@@ -1,8 +1,18 @@
 <template>
     <section class="container">
-        <h1 v-if="foto._id">Alteração</h1>
-        <h1 v-else>Cadastro</h1>
-        <h3>{{ foto.titulo }}</h3>
+        <header>
+            <h1 v-if="foto._id">Alteração</h1>
+            <h1 v-else>Cadastro</h1>
+        </header>
+
+        <div>
+            <ap-message 
+                v-show="message"
+                :estilo="classe" 
+                :message="message"
+                @close="closeMessage" />
+            <h3>{{ foto.titulo }}</h3>
+        </div>
 
         <form 
             class="row"
@@ -93,6 +103,11 @@
                         class="btn btn-primary">
                             Salvar
                     </button>
+                    <router-link 
+                        class="btn btn-info"
+                        :to="{ name: 'home' }">
+                        Voltar
+                    </router-link>
                 </fieldset>
             </div>
         </form>
@@ -102,6 +117,7 @@
 <script>
     import Foto from '../../../models/foto/FotoModel';
     import FotoService from '../../../services/foto/FotoService';
+    import Message from '../../shared/message/Message';
 
     export default {
 
@@ -121,8 +137,14 @@
             return {
 
                 foto: new Foto(),
-                id: this.$route.params.id
+                id: this.$route.params.id,
+                message: '',
+                classe: ''
             }
+        },
+
+        components: {
+            'ap-message': Message
         },
 
         methods: {
@@ -135,11 +157,22 @@
 
                         if(this.id) {
 
-                            alert('Foto alterada com sucesso');
-                            this.$router.push({ name: 'home' });
+                            this.message = 'Foto alterada com sucesso'
+                            this.classe = 'alert-success'
+
+                            setTimeout(() => {
+                                if(confirm('Deseja fazer outra alteração?')) {
+                                    return
+                                } else {
+                                    
+                                    this.$router.push({ name: 'home' });
+                                    return;
+                                }
+                            }, 300);
                         } else {
 
-                            alert('Foto Cadastrada com sucesso')
+                            this.message = 'Foto cadastrada com sucesso'
+                            this.classe = 'alert-success'
     
                             setTimeout(() => {
                                 if(confirm("Deseja cadastrar um nova foto?")) {
@@ -152,6 +185,11 @@
                             },300)
                         }
                     }, erro => console.log(erro))
+            },
+
+            closeMessage() {
+
+                this.message = ''
             }
         }
     }
