@@ -6,10 +6,16 @@
          :message="message"
          @close="closeMessage" />
 
-        <div class="row">
+        <section class="row">
+            <div class="col-sm-12 col-mg-6 col-lg-4 col-xl-4">
+                <ap-search @filtro="recebeValorFiltro($event)"  />
+            </div>
+        </section>
+
+        <section class="row">
             <div 
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3" 
-                v-for="foto in fotos" :key="foto._id">
+                v-for="foto in listaFotos" :key="foto._id">
                 <ap-card    
                     :url="foto.url"
                     :title="foto.titulo"
@@ -28,7 +34,7 @@
                     :remocao="true" />
                 </ap-card>
             </div>
-        </div>
+        </section>
     </section>
 </template>
 
@@ -37,6 +43,7 @@
     import FotoService from '../../../../services/foto/FotoService';
     import Button from '../../button/Button';
     import Message from '../../message/Message';
+    import Search from '../../search/Search';
 
     export default {
 
@@ -61,14 +68,16 @@
 
                 fotos: [],
                 message: '',
-                classe: ''
+                classe: '',
+                filtro: ''
             }
         },
 
         components: {
             'ap-card': CardBase,
             'ap-button': Button,
-            'ap-message': Message
+            'ap-message': Message,
+            'ap-search': Search
         },
 
         methods: {
@@ -95,6 +104,26 @@
             closeMessage() {
 
                 this.message = '';
+            },
+
+            recebeValorFiltro(e) {
+
+                this.filtro = e;
+            }
+        },
+
+        computed: {
+
+            listaFotos() {
+
+                let exp = new RegExp(this.filtro.trim(), 'i');
+
+                if(this.filtro) {
+
+                    return this.fotos.filter(foto => exp.test(foto.titulo))
+                };
+
+                return this.fotos;
             }
         }
     }    
