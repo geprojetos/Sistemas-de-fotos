@@ -119,12 +119,18 @@
                 let exp = new RegExp(this.filtro.trim(), 'i');
 
                 if(this.filtro) {
+                    
+                    return this.fotos.filter(foto => {
+                        
+                        if(exp.test(foto.titulo) || exp.test(foto.descricao)) {
 
-                    return this.fotos.filter(foto => exp.test(foto.titulo))
+                            return foto
+                        } 
+                    })
                 };
 
                 return this.fotos;
-            }
+            },
         }
     }    
 </script>
