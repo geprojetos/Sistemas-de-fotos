@@ -35,6 +35,16 @@ export default class MensagemService {
         return 'Não foi possível remover a foto, tente novamente ou procure o administrador do site';
     }
 
+    categoriesSuccess() {
+
+        return 'Grupos listados com sucesso';
+    }
+
+    categoriesError() {
+
+        return 'Não foi possível listas os grupos';
+    }
+
     classSuccess() {
 
         return 'alert-success';

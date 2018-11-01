@@ -7,8 +7,12 @@
          @close="closeMessage" />
 
         <section class="row">
-            <div class="col-sm-12 col-mg-6 col-lg-4 col-xl-4">
+            <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
                 <ap-search @filtro="recebeValorFiltro($event)"  />
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <ap-select />
             </div>
         </section>
 
@@ -44,6 +48,7 @@
     import Button from '../../button/Button';
     import Message from '../../message/Message';
     import Search from '../../search/Search';
+    import SelectCategories from '../../select/SelectCategories';
 
     export default {
 
@@ -77,7 +82,8 @@
             'ap-card': CardBase,
             'ap-button': Button,
             'ap-message': Message,
-            'ap-search': Search
+            'ap-search': Search,
+            'ap-select': SelectCategories
         },
 
         methods: {
