@@ -1,5 +1,5 @@
 <template>
-    <select name="" id="" class="form-control form-group select" @change="selecionado($event)">
+    <select name="" id="" class="form-control form-group select" @change="selecionado($event.target.value)">
         <option value="">Selecione uma categoria</option>
         <option 
             v-for="categoria in categorias" :key="categoria._id"
@@ -34,10 +34,7 @@
         methods: {
 
             selecionado(e) {
-
-                console.log(e);
-                
-                console.log('Mudou');
+                this.$emit('valorSelcionado', e)                
             }
         }
     }

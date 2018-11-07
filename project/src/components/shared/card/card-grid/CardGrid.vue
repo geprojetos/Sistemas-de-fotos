@@ -12,7 +12,7 @@
             </div>
 
             <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                <ap-select />
+                <ap-select @valorSelcionado="valorSelcionado($event)" />
             </div>
         </section>
 
@@ -74,7 +74,8 @@
                 fotos: [],
                 message: '',
                 classe: '',
-                filtro: ''
+                filtro: '',
+                categoria: ''
             }
         },
 
@@ -115,6 +116,11 @@
             recebeValorFiltro(e) {
 
                 this.filtro = e;
+            },
+
+            valorSelcionado(e) {
+
+                this.categoria = e;
             }
         },
 
@@ -122,21 +128,33 @@
 
             listaFotos() {
 
-                let exp = new RegExp(this.filtro.trim(), 'i');
+                let search = new RegExp(this.filtro.trim(), 'i');
+                let selected = new RegExp(this.categoria.trim(), 'i');
 
                 if(this.filtro) {
                     
                     return this.fotos.filter(foto => {
                         
-                        if(exp.test(foto.titulo) || exp.test(foto.descricao)) {
+                        if(search.test(foto.titulo) || search.test(foto.descricao)) {
 
                             return foto
                         } 
                     })
                 };
 
+                if(this.categoria) {
+                    
+                    return this.fotos.filter(categoria => {
+                        
+                        if(selected.test(categoria.categoria)) {
+                            
+                            return categoria;
+                        }
+                    })
+                }
+
                 return this.fotos;
-            },
+            }
         }
     }    
 </script>
