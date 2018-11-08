@@ -29,6 +29,23 @@
             <div class="col-sm-12 col-md-6 col-lg-8">
                 <fieldset>
                     <div class="form-group">
+                        {{ foto.categoria }}
+                        <ap-select
+                         id="categoria"
+                         name="categoria"
+                         v-validate="{ required: true }" 
+                         data-vv-as="Categoria"
+                         v-model="foto.categoria"
+                         @valorSelecionado="valorSelecionado($event)" />
+
+                        <small 
+                            class="form-text text-danger"
+                            v-show="errors.has('categoria')">
+                            {{ errors.first('categoria') }}
+                        </small>
+                    </div>
+
+                    <div class="form-group">
                         <label for="title">
                             Coloque um tíitulo para o card: 
                             <small>(obrigatório *)</small>
@@ -117,6 +134,7 @@
     import Foto from '../../../models/foto/FotoModel';
     import FotoService from '../../../services/foto/FotoService';
     import Message from '../../shared/message/Message';
+    import SelectCategories from '../../shared/select/SelectCategories';
 
     export default {
 
@@ -143,13 +161,15 @@
         },
 
         components: {
-            'ap-message': Message
+            'ap-message': Message,
+            'ap-select': SelectCategories
         },
 
         methods: {
 
             salvar() {
-
+                console.log(this.foto.categoria);
+                
                 this.$validator
                     .validateAll()
                     .then( success => {
@@ -203,6 +223,10 @@
             closeMessage() {
 
                 this.message = ''
+            },
+
+            valorSelecionado(e) {
+                this.foto.categoria = e;
             }
         }
     }

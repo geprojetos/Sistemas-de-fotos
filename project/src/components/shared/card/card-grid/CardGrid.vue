@@ -12,7 +12,7 @@
             </div>
 
             <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                <ap-select @valorSelcionado="valorSelcionado($event)" />
+                <ap-select @valorSelecionado="valorSelecionado($event)" />
             </div>
         </section>
 
@@ -118,7 +118,7 @@
                 this.filtro = e;
             },
 
-            valorSelcionado(e) {
+            valorSelecionado(e) {
 
                 this.categoria = e;
             }

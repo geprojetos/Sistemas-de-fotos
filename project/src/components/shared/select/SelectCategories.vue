@@ -1,9 +1,10 @@
 <template>
-    <select name="" id="" class="form-control form-group select" @change="selecionado($event.target.value)">
+    <select :name="name" :id="id" class="form-control form-group select" @change="selecionado($event.target.value)">
         <option value="">Selecione uma categoria</option>
         <option 
             v-for="categoria in categorias" :key="categoria._id"
-            :value="categoria.nome">
+            :value="categoria.nome"
+            v-if="categoria.nome ? 'selected' : 'teste'">
             {{ categoria.nome }}
         </option>
     </select>
@@ -24,6 +25,17 @@
                 .catch( erro => console.log(erro) )
         },
 
+        props: {
+            name: {
+                required: false,
+                type: String
+            },
+            id: {
+                required: false,
+                type: String
+            }
+        },
+
         data() {
 
             return {
@@ -34,7 +46,7 @@
         methods: {
 
             selecionado(e) {
-                this.$emit('valorSelcionado', e)                
+                this.$emit('valorSelecionado', e)                
             }
         }
     }
