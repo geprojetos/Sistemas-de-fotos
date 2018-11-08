@@ -150,45 +150,53 @@
 
             salvar() {
 
-                this.service
-                    .save(this.foto)
-                    .then(res => {
-
-                        if(this.id) {
-
-                            this.message = res.text;
-                            this.classe = res.class;
-
-                            setTimeout(() => {
-                                if(confirm('Deseja fazer outra alteração?')) {
-                                    return
-                                } else {
-                                    
-                                    this.$router.push({ name: 'home' });
-                                    return;
-                                }
-                            }, 300);
-                        } else {
-
-                            this.message = res.text;
-                            this.classe = res.class;
-    
-                            setTimeout(() => {
-                                if(confirm("Deseja cadastrar um nova foto?")) {
-                                    this.foto = new Foto();
-                                    return;
-                                }
-    
-                                this.$router.push({ name: 'home' });
-                                return;
-                            },300)
-                        }
-                    }, erro => {
-
-                        console.log(erro);
+                this.$validator
+                    .validateAll()
+                    .then( success => {
                         
-                        this.message = res.text;
-                        this.classe = res.class;
+                        if(success) {
+
+                            this.service
+                                .save(this.foto)
+                                .then(res => {
+            
+                                    if(this.id) {
+            
+                                        this.message = res.text;
+                                        this.classe = res.class;
+            
+                                        setTimeout(() => {
+                                            if(confirm('Deseja fazer outra alteração?')) {
+                                                return
+                                            } else {
+                                                
+                                                this.$router.push({ name: 'home' });
+                                                return;
+                                            }
+                                        }, 300);
+                                    } else {
+            
+                                        this.message = res.text;
+                                        this.classe = res.class;
+                
+                                        setTimeout(() => {
+                                            if(confirm("Deseja cadastrar um nova foto?")) {
+                                                this.foto = new Foto();
+                                                return;
+                                            }
+                
+                                            this.$router.push({ name: 'home' });
+                                            return;
+                                        },300)
+                                    }
+                                }, erro => {
+            
+                                    console.log(erro);
+                                    
+                                    this.message = res.text;
+                                    this.classe = res.class;
+                                })
+                        }
                     })
             },
 
