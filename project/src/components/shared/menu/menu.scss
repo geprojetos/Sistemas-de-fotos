@@ -39,6 +39,12 @@
   text-decoration: none;
 }
 
+.nav-link:hover {
+    background: #fff;
+    color: #28a745;
+    transition: all .5s ease-in-out
+}
+
 .navbar-dark .navbar-brand {
     color: #fff;
 }
@@ -51,4 +57,39 @@ a.bg-success:hover, a.bg-success:focus,
 button.bg-success:hover,
 button.bg-success:focus {
   background-color: #1e7e34 !important;
+}
+
+.menu-on,
+.menu-off {
+    position: fixed;
+    width: 90%;
+    max-width: 280px;
+    height: 100%;
+    background-color: #28a745 !important;
+    top: 0;
+    z-index: 2;
+    transition: all .5s ease-in-out;
+}
+
+.menu-on {
+    right: 0;
+}
+
+.menu-off {
+    right: -90%;
+}
+
+.menu-active-bkg {
+    background: rgba(0,0,0,.8);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    transition: all .5s ease-in-out;
+}
+
+.menu-cursos-pointer {
+    cursor: pointer;
 }
