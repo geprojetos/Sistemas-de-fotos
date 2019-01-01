@@ -1,7 +1,7 @@
 <template>
     <header class="navbar-dark bg-success">          
-        <nav class="navbar container">
-            <div class="col row">
+        <nav class="container pt-2 pb-2">
+            <div class="row">
                 <div class="col-6">
                     <router-link class="navbar-brand" to="/">
                         LOGO
@@ -12,7 +12,7 @@
                     <span 
                         class="open-menu menu-cursos-pointer p-2 d-block" 
                         @click="toggleMenu">
-                        Open
+                        <span class="menu-icon"></span>
                     </span>
                 </div>
             </div>
@@ -22,9 +22,9 @@
                 :class="menuActive">
 
                 <li 
-                    class="menu-cursos-pointer text-right mb-4 p-2"
+                    class="menu-cursos-pointer text-right mb-4 pr-2 menu-icon-close"
                     @click="toggleMenu">
-                    Close
+                    X
                 </li>
 
                 <li 

@@ -33,7 +33,23 @@
 
 .text-right {
     text-align: right !important;
-} 
+}
+
+.p-0 {
+    padding: 0 !important;
+}
+
+.pl-0 {
+  padding-left: 0 !important;
+}
+
+.pr-0 {
+    padding-right: 0 !important;
+}
+
+.pr-2 {
+  padding-right: 0.5rem !important;
+}
 
 .p-2 {
     padding: 0.5rem !important;

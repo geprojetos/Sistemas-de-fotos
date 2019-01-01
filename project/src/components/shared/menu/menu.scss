@@ -93,3 +93,24 @@ button.bg-success:focus {
 .menu-cursos-pointer {
     cursor: pointer;
 }
+
+.menu-icon {
+    position: relative;
+    padding-left: 1.25em;
+}
+
+.menu-icon:before {
+    content: "";
+    position: absolute;
+    top: 0.25em;
+    left: 0;
+    width: 1.1em;
+    height: 0.125em;
+    border-top: 0.375em double #fff;
+    border-bottom: 0.125em solid #fff;
+}
+
+.menu-icon-close {
+    color: #fff;
+    font: bold 1.2em Arial, sans-serif;
+}
