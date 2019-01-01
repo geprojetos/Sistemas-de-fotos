@@ -47,6 +47,17 @@
     border-color: #0062cc;
 }
 
+.btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+  
+.btn-success:hover {
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34;
+}
 
 .btn-info {
     color: #fff;
@@ -54,7 +65,7 @@
     border-color: #17a2b8;
 }
   
-  .btn-info:hover {
+.btn-info:hover {
     color: #fff;
     background-color: #138496;
     border-color: #117a8b;
