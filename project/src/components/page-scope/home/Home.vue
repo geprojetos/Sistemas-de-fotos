@@ -1,7 +1,7 @@
 <template>
     <div>
         <ap-modal 
-            titulo="Título"
+            modal="opa"
         />
         <ap-card-grid />
     </div>

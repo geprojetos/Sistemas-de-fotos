@@ -29,7 +29,8 @@
 
                 <li 
                     class="nav-item active"
-                    v-for="rota in rotas" :key="rota.id">
+                    v-for="rota in rotas" :key="rota.id"
+                    @click="toggleMenu">
 
                     <router-link 
                         class="nav-link d-block p-2"
